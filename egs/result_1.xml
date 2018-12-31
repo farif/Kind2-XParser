@@ -1,0 +1,1963 @@
+<?xml version="1.0"?>
+<Results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" enabled="bmc,ind,ind2,ic3,invgents,invgenos,invgenintos,invgenintos" timeout="0.000000" bmc_max="0" compositional="false" modular="false">
+
+
+<Log class="info" source="parse">kind2 v1.1.0-267-ge8871cfb</Log>
+
+
+<AnalysisStart top="Scenario1" concrete="yaw2dir,is_equal,flying_simulator,duration,UAVSystem,StateController,RemoteOperatorController,RCReceiverHealthCheck,RCReceiver,PositionEstimator,Navigator,Mixer,MissionPlanner,GPSSatellite,GPS,FlightController,BatteryHealthCheck,Actuators" abstract="choose_battery_consumption" assumptions=""/>
+
+<Property name="Scenario1Spec[l431c2].a_picture_only_in_m1_waypoint[1]" line="377" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.052</Runtime>
+  <K>0</K>
+  <Answer source="bmc">falsifiable</Answer>
+   <CounterExample>
+    <Node name="Scenario1">
+      <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+      </Stream>
+      <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+        <Value instant="0">NoChange</Value>
+      </Stream>
+      <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+        <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+      </Stream>
+      <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+      </Stream>
+      <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+      </Stream>
+      <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+      </Stream>
+      <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Move_Forward</Value>
+      </Stream>
+      <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="local">
+        <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+      </Stream>
+      <Node name="is_equal" line="378" column="86">
+        <Stream name="pos1.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos1.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos2.x" type="int" class="input"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="pos2.y" type="int" class="input"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="z" type="bool" class="output"><Value instant="0">false</Value>
+        </Stream>
+      </Node>
+      <Node name="RemoteOperatorController" line="442" column="30">
+        <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+      </Node>
+      <Node name="GPSSatellite" line="440" column="21">
+        <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="input">
+          <Value instant="0">NoChange</Value>
+        </Stream>
+        <Stream name="currentPos.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentPos.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="nextPos.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="nextPos.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="local"><Value instant="0">Y_0</Value>
+        </Stream>
+        <Stream name="x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="nextDir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Node name="flying_simulator" line="197" column="21">
+          <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="input"><Value instant="0">Y_0</Value>
+          </Stream>
+          <Stream name="x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextPos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextPos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextDir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="new_position.y" type="int" class="local"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="new_position.x" type="int" class="local"><Value instant="0">0</Value>
+          </Stream>
+          <Node name="yaw2dir" file="Agree_Nodes.lus" line="37" column="14">
+            <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="input"><Value instant="0">Y_0</Value>
+            </Stream>
+            <Stream name="dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+            </Stream>
+          </Node>
+        </Node>
+      </Node>
+      <Node name="UAVSystem" line="446" column="4">
+        <Stream name="satellite_GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="satellite_GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="satellite_GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="rcv_uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+        <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+          <Value instant="0">NoChange</Value>
+        </Stream>
+        <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+          <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+        </Stream>
+        <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Camera</Value>
+        </Stream>
+        <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Weapon</Value>
+        </Stream>
+        <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Land</Value>
+        </Stream>
+        <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task3.waypoint.x" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="tasks.task3.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+        </Stream>
+        <Stream name="ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="local"><Value instant="0">RC_Normal</Value>
+        </Stream>
+        <Stream name="normal" type="bool" class="local"><Value instant="0">true</Value>
+        </Stream>
+        <Stream name="ATE7" type="enum" values="Inadequate, Adequate" class="local"><Value instant="0">Adequate</Value>
+        </Stream>
+        <Stream name="battery_level" type="int" class="local"><Value instant="0">96</Value>
+        </Stream>
+        <Stream name="dest_reached" type="bool" class="local"><Value instant="0">true</Value>
+        </Stream>
+        <Stream name="GPS_pos.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="waypoint.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="waypoint.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentDir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="local">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+        <Stream name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="moveNav" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Stop</Value>
+        </Stream>
+        <Node name="MissionPlanner" line="342" column="10">
+          <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.x" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t1.waypoint.y" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t1.waypoint.x" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="t2.waypoint.y" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t2.waypoint.x" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="t3.waypoint.y" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t3.waypoint.x" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+        </Node>
+        <Node name="GPS" line="336" column="21">
+          <Stream name="satellite_GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="satellite_GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="satellite_GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+        </Node>
+        <Node name="PositionEstimator" line="338" column="27">
+          <Stream name="GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+        </Node>
+        <Node name="Navigator" line="340" column="26">
+          <Stream name="currentPos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentPos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypointPos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypointPos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Stop</Value>
+          </Stream>
+          <Stream name="desReached" type="bool" class="output"><Value instant="0">true</Value>
+          </Stream>
+        </Node>
+        <Node name="FlightController" line="344" column="27">
+          <Stream name="dest_reached" type="bool" class="input"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="payload_performed" type="bool" class="input"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.x" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.y" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.x" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.y" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.x" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.y" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="waypoint.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypoint.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="task1.waypoint.y" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task1.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="upd_task1.waypoint.y" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task1.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="task2.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task2.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="upd_task2.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task2.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="task3.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task3.waypoint.x" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="upd_task3.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task3.waypoint.x" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="curr_dest_reached" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="curr_payload_performed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+        </Node>
+        <Node name="Actuators" line="350" column="37">
+          <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="input">
+            <Value instant="0">NoChange</Value>
+          </Stream>
+          <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="battery_level" type="int" class="output"><Value instant="0">96</Value>
+          </Stream>
+          <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="prev_battery_level" type="int" class="local"><Value instant="0">100</Value>
+          </Stream>
+          <Stream name="battery4pos_consumed" type="bool" class="local"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="battery4dir_consumed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="battery4pay_consumed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">None</Value>
+          </Stream>
+          <Node name="choose_battery_consumption" line="37" column="27">
+            <Stream name="i" type="int" class="input"><Value instant="0">1</Value>
+            </Stream>
+            <Stream name="o" type="int" class="output"><Value instant="0">4</Value>
+            </Stream>
+          </Node>
+        </Node>
+        <Node name="BatteryHealthCheck" line="354" column="9">
+          <Stream name="battery_level" type="int" class="input"><Value instant="0">96</Value>
+          </Stream>
+          <Stream name="ATE7" type="enum" values="Inadequate, Adequate" class="output"><Value instant="0">Adequate</Value>
+          </Stream>
+          <Stream name="next_ATE7" type="enum" values="Inadequate, Adequate" class="local"><Value instant="0">Adequate</Value>
+          </Stream>
+        </Node>
+        <Node name="RCReceiver" line="346" column="42">
+          <Stream name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="rcv_uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+          <Stream name="normal" type="bool" class="output"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+        </Node>
+        <Node name="RCReceiverHealthCheck" line="352" column="9">
+          <Stream name="normal" type="bool" class="input"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="output"><Value instant="0">RC_Normal</Value>
+          </Stream>
+          <Stream name="next_ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="local"><Value instant="0">RC_Normal</Value>
+          </Stream>
+          <Node name="duration" line="295" column="9">
+            <Stream name="p" type="bool" class="input"><Value instant="0">true</Value>
+            </Stream>
+            <Stream name="r" type="int" class="output"><Value instant="0">0</Value>
+            </Stream>
+          </Node>
+        </Node>
+        <Node name="StateController" line="356" column="11">
+          <Stream name="ATE6" type="int" class="input"><Value instant="0">31</Value>
+          </Stream>
+          <Stream name="ATE7" type="int" class="input"><Value instant="0">33</Value>
+          </Stream>
+          <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+        </Node>
+        <Node name="Mixer" line="348" column="8">
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="moveNav" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Stop</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+            <Value instant="0">NoChange</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Stop</Value>
+          </Stream>
+        </Node>
+      </Node>
+    </Node>
+  </CounterExample>
+</Property>
+<Property name="Scenario1Spec[l431c2].b_weapon_only_in_m2_waypoint[2]" line="382" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.052</Runtime>
+  <K>0</K>
+  <Answer source="bmc">falsifiable</Answer>
+   <CounterExample>
+    <Node name="Scenario1">
+      <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+      </Stream>
+      <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+        <Value instant="0">NoChange</Value>
+      </Stream>
+      <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+        <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+      </Stream>
+      <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+      </Stream>
+      <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+      </Stream>
+      <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+      </Stream>
+      <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Move_Forward</Value>
+      </Stream>
+      <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="local">
+        <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+      </Stream>
+      <Node name="is_equal" line="383" column="91">
+        <Stream name="pos1.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos1.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos2.x" type="int" class="input"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="pos2.y" type="int" class="input"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="z" type="bool" class="output"><Value instant="0">false</Value>
+        </Stream>
+      </Node>
+      <Node name="RemoteOperatorController" line="442" column="30">
+        <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+      </Node>
+      <Node name="GPSSatellite" line="440" column="21">
+        <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="input">
+          <Value instant="0">NoChange</Value>
+        </Stream>
+        <Stream name="currentPos.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentPos.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="nextPos.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="nextPos.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="local"><Value instant="0">Y_0</Value>
+        </Stream>
+        <Stream name="x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="nextDir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Node name="flying_simulator" line="197" column="21">
+          <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="input"><Value instant="0">Y_0</Value>
+          </Stream>
+          <Stream name="x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextPos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextPos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextDir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="new_position.y" type="int" class="local"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="new_position.x" type="int" class="local"><Value instant="0">0</Value>
+          </Stream>
+          <Node name="yaw2dir" file="Agree_Nodes.lus" line="37" column="14">
+            <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="input"><Value instant="0">Y_0</Value>
+            </Stream>
+            <Stream name="dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+            </Stream>
+          </Node>
+        </Node>
+      </Node>
+      <Node name="UAVSystem" line="446" column="4">
+        <Stream name="satellite_GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="satellite_GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="satellite_GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="rcv_uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+        <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+          <Value instant="0">NoChange</Value>
+        </Stream>
+        <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+          <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+        </Stream>
+        <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Camera</Value>
+        </Stream>
+        <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Weapon</Value>
+        </Stream>
+        <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Land</Value>
+        </Stream>
+        <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task3.waypoint.x" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="tasks.task3.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+        </Stream>
+        <Stream name="ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="local"><Value instant="0">RC_Normal</Value>
+        </Stream>
+        <Stream name="normal" type="bool" class="local"><Value instant="0">true</Value>
+        </Stream>
+        <Stream name="ATE7" type="enum" values="Inadequate, Adequate" class="local"><Value instant="0">Adequate</Value>
+        </Stream>
+        <Stream name="battery_level" type="int" class="local"><Value instant="0">96</Value>
+        </Stream>
+        <Stream name="dest_reached" type="bool" class="local"><Value instant="0">true</Value>
+        </Stream>
+        <Stream name="GPS_pos.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="waypoint.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="waypoint.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentDir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="local">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+        <Stream name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="moveNav" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Stop</Value>
+        </Stream>
+        <Node name="MissionPlanner" line="342" column="10">
+          <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.x" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t1.waypoint.y" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t1.waypoint.x" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="t2.waypoint.y" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t2.waypoint.x" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="t3.waypoint.y" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t3.waypoint.x" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+        </Node>
+        <Node name="GPS" line="336" column="21">
+          <Stream name="satellite_GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="satellite_GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="satellite_GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+        </Node>
+        <Node name="PositionEstimator" line="338" column="27">
+          <Stream name="GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+        </Node>
+        <Node name="Navigator" line="340" column="26">
+          <Stream name="currentPos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentPos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypointPos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypointPos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Stop</Value>
+          </Stream>
+          <Stream name="desReached" type="bool" class="output"><Value instant="0">true</Value>
+          </Stream>
+        </Node>
+        <Node name="FlightController" line="344" column="27">
+          <Stream name="dest_reached" type="bool" class="input"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="payload_performed" type="bool" class="input"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.x" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.y" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.x" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.y" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.x" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.y" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="waypoint.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypoint.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="task1.waypoint.y" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task1.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="upd_task1.waypoint.y" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task1.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="task2.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task2.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="upd_task2.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task2.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="task3.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task3.waypoint.x" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="upd_task3.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task3.waypoint.x" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="curr_dest_reached" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="curr_payload_performed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+        </Node>
+        <Node name="Actuators" line="350" column="37">
+          <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="input">
+            <Value instant="0">NoChange</Value>
+          </Stream>
+          <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="battery_level" type="int" class="output"><Value instant="0">96</Value>
+          </Stream>
+          <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="prev_battery_level" type="int" class="local"><Value instant="0">100</Value>
+          </Stream>
+          <Stream name="battery4pos_consumed" type="bool" class="local"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="battery4dir_consumed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="battery4pay_consumed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">None</Value>
+          </Stream>
+          <Node name="choose_battery_consumption" line="37" column="27">
+            <Stream name="i" type="int" class="input"><Value instant="0">1</Value>
+            </Stream>
+            <Stream name="o" type="int" class="output"><Value instant="0">4</Value>
+            </Stream>
+          </Node>
+        </Node>
+        <Node name="BatteryHealthCheck" line="354" column="9">
+          <Stream name="battery_level" type="int" class="input"><Value instant="0">96</Value>
+          </Stream>
+          <Stream name="ATE7" type="enum" values="Inadequate, Adequate" class="output"><Value instant="0">Adequate</Value>
+          </Stream>
+          <Stream name="next_ATE7" type="enum" values="Inadequate, Adequate" class="local"><Value instant="0">Adequate</Value>
+          </Stream>
+        </Node>
+        <Node name="RCReceiver" line="346" column="42">
+          <Stream name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="rcv_uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+          <Stream name="normal" type="bool" class="output"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+        </Node>
+        <Node name="RCReceiverHealthCheck" line="352" column="9">
+          <Stream name="normal" type="bool" class="input"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="output"><Value instant="0">RC_Normal</Value>
+          </Stream>
+          <Stream name="next_ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="local"><Value instant="0">RC_Normal</Value>
+          </Stream>
+          <Node name="duration" line="295" column="9">
+            <Stream name="p" type="bool" class="input"><Value instant="0">true</Value>
+            </Stream>
+            <Stream name="r" type="int" class="output"><Value instant="0">0</Value>
+            </Stream>
+          </Node>
+        </Node>
+        <Node name="StateController" line="356" column="11">
+          <Stream name="ATE6" type="int" class="input"><Value instant="0">31</Value>
+          </Stream>
+          <Stream name="ATE7" type="int" class="input"><Value instant="0">33</Value>
+          </Stream>
+          <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+        </Node>
+        <Node name="Mixer" line="348" column="8">
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="moveNav" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Stop</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+            <Value instant="0">NoChange</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Stop</Value>
+          </Stream>
+        </Node>
+      </Node>
+    </Node>
+  </CounterExample>
+</Property>
+<Property name="Scenario1Spec[l431c2].c_not_taking_picture_on_arbitrary_location[3]" line="387" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.052</Runtime>
+  <K>0</K>
+  <Answer source="bmc">falsifiable</Answer>
+   <CounterExample>
+    <Node name="Scenario1">
+      <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+      </Stream>
+      <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+        <Value instant="0">NoChange</Value>
+      </Stream>
+      <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+        <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+      </Stream>
+      <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+      </Stream>
+      <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Move_Forward</Value>
+      </Stream>
+      <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="local">
+        <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+      </Stream>
+      <Node name="is_equal" line="388" column="90">
+        <Stream name="pos1.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos1.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos2.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos2.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="z" type="bool" class="output"><Value instant="0">true</Value>
+        </Stream>
+      </Node>
+      <Node name="RemoteOperatorController" line="442" column="30">
+        <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+      </Node>
+      <Node name="GPSSatellite" line="440" column="21">
+        <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="input">
+          <Value instant="0">NoChange</Value>
+        </Stream>
+        <Stream name="currentPos.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentPos.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="nextPos.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="nextPos.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="local"><Value instant="0">Y_0</Value>
+        </Stream>
+        <Stream name="x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="nextDir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Node name="flying_simulator" line="197" column="21">
+          <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="input"><Value instant="0">Y_0</Value>
+          </Stream>
+          <Stream name="x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextPos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextPos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextDir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="new_position.y" type="int" class="local"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="new_position.x" type="int" class="local"><Value instant="0">0</Value>
+          </Stream>
+          <Node name="yaw2dir" file="Agree_Nodes.lus" line="37" column="14">
+            <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="input"><Value instant="0">Y_0</Value>
+            </Stream>
+            <Stream name="dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+            </Stream>
+          </Node>
+        </Node>
+      </Node>
+      <Node name="UAVSystem" line="446" column="4">
+        <Stream name="satellite_GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="satellite_GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="satellite_GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="rcv_uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+        <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+          <Value instant="0">NoChange</Value>
+        </Stream>
+        <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+          <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+        </Stream>
+        <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Camera</Value>
+        </Stream>
+        <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Weapon</Value>
+        </Stream>
+        <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Land</Value>
+        </Stream>
+        <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task3.waypoint.x" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="tasks.task3.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+        </Stream>
+        <Stream name="ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="local"><Value instant="0">RC_Normal</Value>
+        </Stream>
+        <Stream name="normal" type="bool" class="local"><Value instant="0">true</Value>
+        </Stream>
+        <Stream name="ATE7" type="enum" values="Inadequate, Adequate" class="local"><Value instant="0">Adequate</Value>
+        </Stream>
+        <Stream name="battery_level" type="int" class="local"><Value instant="0">96</Value>
+        </Stream>
+        <Stream name="dest_reached" type="bool" class="local"><Value instant="0">true</Value>
+        </Stream>
+        <Stream name="GPS_pos.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="waypoint.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="waypoint.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentDir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="local">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+        <Stream name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="moveNav" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Stop</Value>
+        </Stream>
+        <Node name="MissionPlanner" line="342" column="10">
+          <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.x" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t1.waypoint.y" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t1.waypoint.x" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="t2.waypoint.y" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t2.waypoint.x" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="t3.waypoint.y" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t3.waypoint.x" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+        </Node>
+        <Node name="GPS" line="336" column="21">
+          <Stream name="satellite_GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="satellite_GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="satellite_GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+        </Node>
+        <Node name="PositionEstimator" line="338" column="27">
+          <Stream name="GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+        </Node>
+        <Node name="Navigator" line="340" column="26">
+          <Stream name="currentPos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentPos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypointPos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypointPos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Stop</Value>
+          </Stream>
+          <Stream name="desReached" type="bool" class="output"><Value instant="0">true</Value>
+          </Stream>
+        </Node>
+        <Node name="FlightController" line="344" column="27">
+          <Stream name="dest_reached" type="bool" class="input"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="payload_performed" type="bool" class="input"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.x" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.y" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.x" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.y" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.x" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.y" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="waypoint.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypoint.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="task1.waypoint.y" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task1.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="upd_task1.waypoint.y" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task1.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="task2.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task2.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="upd_task2.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task2.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="task3.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task3.waypoint.x" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="upd_task3.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task3.waypoint.x" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="curr_dest_reached" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="curr_payload_performed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+        </Node>
+        <Node name="Actuators" line="350" column="37">
+          <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="input">
+            <Value instant="0">NoChange</Value>
+          </Stream>
+          <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="battery_level" type="int" class="output"><Value instant="0">96</Value>
+          </Stream>
+          <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="prev_battery_level" type="int" class="local"><Value instant="0">100</Value>
+          </Stream>
+          <Stream name="battery4pos_consumed" type="bool" class="local"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="battery4dir_consumed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="battery4pay_consumed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">None</Value>
+          </Stream>
+          <Node name="choose_battery_consumption" line="37" column="27">
+            <Stream name="i" type="int" class="input"><Value instant="0">1</Value>
+            </Stream>
+            <Stream name="o" type="int" class="output"><Value instant="0">4</Value>
+            </Stream>
+          </Node>
+        </Node>
+        <Node name="BatteryHealthCheck" line="354" column="9">
+          <Stream name="battery_level" type="int" class="input"><Value instant="0">96</Value>
+          </Stream>
+          <Stream name="ATE7" type="enum" values="Inadequate, Adequate" class="output"><Value instant="0">Adequate</Value>
+          </Stream>
+          <Stream name="next_ATE7" type="enum" values="Inadequate, Adequate" class="local"><Value instant="0">Adequate</Value>
+          </Stream>
+        </Node>
+        <Node name="RCReceiver" line="346" column="42">
+          <Stream name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="rcv_uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+          <Stream name="normal" type="bool" class="output"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+        </Node>
+        <Node name="RCReceiverHealthCheck" line="352" column="9">
+          <Stream name="normal" type="bool" class="input"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="output"><Value instant="0">RC_Normal</Value>
+          </Stream>
+          <Stream name="next_ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="local"><Value instant="0">RC_Normal</Value>
+          </Stream>
+          <Node name="duration" line="295" column="9">
+            <Stream name="p" type="bool" class="input"><Value instant="0">true</Value>
+            </Stream>
+            <Stream name="r" type="int" class="output"><Value instant="0">0</Value>
+            </Stream>
+          </Node>
+        </Node>
+        <Node name="StateController" line="356" column="11">
+          <Stream name="ATE6" type="int" class="input"><Value instant="0">31</Value>
+          </Stream>
+          <Stream name="ATE7" type="int" class="input"><Value instant="0">33</Value>
+          </Stream>
+          <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+        </Node>
+        <Node name="Mixer" line="348" column="8">
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="moveNav" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Stop</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+            <Value instant="0">NoChange</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Stop</Value>
+          </Stream>
+        </Node>
+      </Node>
+    </Node>
+  </CounterExample>
+</Property>
+<Property name="Scenario1Spec[l431c2].d_not_releasing_weapon_on_arbitrary_location[4]" line="392" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.052</Runtime>
+  <K>0</K>
+  <Answer source="bmc">falsifiable</Answer>
+   <CounterExample>
+    <Node name="Scenario1">
+      <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+      </Stream>
+      <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+        <Value instant="0">NoChange</Value>
+      </Stream>
+      <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+      </Stream>
+      <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+        <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+      </Stream>
+      <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+      </Stream>
+      <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">None</Value>
+      </Stream>
+      <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Move_Forward</Value>
+      </Stream>
+      <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="local">
+        <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+      </Stream>
+      <Node name="is_equal" line="393" column="90">
+        <Stream name="pos1.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos1.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="pos2.x" type="int" class="input"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="pos2.y" type="int" class="input"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="z" type="bool" class="output"><Value instant="0">false</Value>
+        </Stream>
+      </Node>
+      <Node name="RemoteOperatorController" line="442" column="30">
+        <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+      </Node>
+      <Node name="GPSSatellite" line="440" column="21">
+        <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="input">
+          <Value instant="0">NoChange</Value>
+        </Stream>
+        <Stream name="currentPos.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentPos.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="nextPos.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="nextPos.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="local"><Value instant="0">Y_0</Value>
+        </Stream>
+        <Stream name="x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="nextDir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Node name="flying_simulator" line="197" column="21">
+          <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="input"><Value instant="0">Y_0</Value>
+          </Stream>
+          <Stream name="x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextPos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextPos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="nextDir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="new_position.y" type="int" class="local"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="new_position.x" type="int" class="local"><Value instant="0">0</Value>
+          </Stream>
+          <Node name="yaw2dir" file="Agree_Nodes.lus" line="37" column="14">
+            <Stream name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" class="input"><Value instant="0">Y_0</Value>
+            </Stream>
+            <Stream name="dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+            </Stream>
+          </Node>
+        </Node>
+      </Node>
+      <Node name="UAVSystem" line="446" column="4">
+        <Stream name="satellite_GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="satellite_GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="satellite_GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="rcv_uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+        <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+          <Value instant="0">NoChange</Value>
+        </Stream>
+        <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+        </Stream>
+        <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+          <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+        </Stream>
+        <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Camera</Value>
+        </Stream>
+        <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Weapon</Value>
+        </Stream>
+        <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+        </Stream>
+        <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Land</Value>
+        </Stream>
+        <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+        </Stream>
+        <Stream name="tasks.task3.waypoint.x" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="tasks.task3.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+        </Stream>
+        <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+        </Stream>
+        <Stream name="ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="local"><Value instant="0">RC_Normal</Value>
+        </Stream>
+        <Stream name="normal" type="bool" class="local"><Value instant="0">true</Value>
+        </Stream>
+        <Stream name="ATE7" type="enum" values="Inadequate, Adequate" class="local"><Value instant="0">Adequate</Value>
+        </Stream>
+        <Stream name="battery_level" type="int" class="local"><Value instant="0">96</Value>
+        </Stream>
+        <Stream name="dest_reached" type="bool" class="local"><Value instant="0">true</Value>
+        </Stream>
+        <Stream name="GPS_pos.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_pos.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="waypoint.y" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="waypoint.x" type="int" class="local"><Value instant="0">0</Value>
+        </Stream>
+        <Stream name="currentDir" type="enum" values="North, South, East, West" class="local"><Value instant="0">North</Value>
+        </Stream>
+        <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="local">
+          <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+        </Stream>
+        <Stream name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Move_Forward</Value>
+        </Stream>
+        <Stream name="moveNav" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Stop</Value>
+        </Stream>
+        <Node name="MissionPlanner" line="342" column="10">
+          <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.y" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.x" type="int" class="output"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="output"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.x" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.y" type="int" class="output"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t1.waypoint.y" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t1.waypoint.x" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="t2.waypoint.y" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t2.waypoint.x" type="subrange" min="1" max="1" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="t2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="t3.waypoint.y" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t3.waypoint.x" type="subrange" min="2" max="2" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="t3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="t3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+        </Node>
+        <Node name="GPS" line="336" column="21">
+          <Stream name="satellite_GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="satellite_GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="satellite_GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="GPS_pos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_pos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+        </Node>
+        <Node name="PositionEstimator" line="338" column="27">
+          <Stream name="GPS_pos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_pos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="GPS_dir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="currentPos.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentPos.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="output"><Value instant="0">North</Value>
+          </Stream>
+        </Node>
+        <Node name="Navigator" line="340" column="26">
+          <Stream name="currentPos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentPos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypointPos.x" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypointPos.y" type="int" class="input"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Stop</Value>
+          </Stream>
+          <Stream name="desReached" type="bool" class="output"><Value instant="0">true</Value>
+          </Stream>
+        </Node>
+        <Node name="FlightController" line="344" column="27">
+          <Stream name="dest_reached" type="bool" class="input"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="payload_performed" type="bool" class="input"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="tasks.task1.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="tasks.task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.x" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task1.waypoint.y" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="tasks.task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.x" type="int" class="input"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="tasks.task2.waypoint.y" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.action" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="tasks.task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="input"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.x" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="tasks.task3.waypoint.y" type="int" class="input"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="waypoint.x" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="waypoint.y" type="int" class="output"><Value instant="0">0</Value>
+          </Stream>
+          <Stream name="task1.waypoint.y" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task1.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="upd_task1.waypoint.y" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task1.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task1.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task1.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Camera</Value>
+          </Stream>
+          <Stream name="task2.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task2.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="upd_task2.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task2.waypoint.x" type="int" class="local"><Value instant="0">1</Value>
+          </Stream>
+          <Stream name="upd_task2.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task2.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Weapon</Value>
+          </Stream>
+          <Stream name="task3.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task3.waypoint.x" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="task3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="upd_task3.waypoint.y" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task3.waypoint.x" type="int" class="local"><Value instant="0">2</Value>
+          </Stream>
+          <Stream name="upd_task3.status" type="enum" values="Successful, Aborted, InProgress, Started" class="local"><Value instant="0">Started</Value>
+          </Stream>
+          <Stream name="upd_task3.action" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">Land</Value>
+          </Stream>
+          <Stream name="curr_dest_reached" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="curr_payload_performed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+        </Node>
+        <Node name="Actuators" line="350" column="37">
+          <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="input">
+            <Value instant="0">NoChange</Value>
+          </Stream>
+          <Stream name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="battery_level" type="int" class="output"><Value instant="0">96</Value>
+          </Stream>
+          <Stream name="payload_performed" type="bool" class="output"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="prev_battery_level" type="int" class="local"><Value instant="0">100</Value>
+          </Stream>
+          <Stream name="battery4pos_consumed" type="bool" class="local"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="battery4dir_consumed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="battery4pay_consumed" type="bool" class="local"><Value instant="0">false</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="local"><Value instant="0">None</Value>
+          </Stream>
+          <Node name="choose_battery_consumption" line="37" column="27">
+            <Stream name="i" type="int" class="input"><Value instant="0">1</Value>
+            </Stream>
+            <Stream name="o" type="int" class="output"><Value instant="0">4</Value>
+            </Stream>
+          </Node>
+        </Node>
+        <Node name="BatteryHealthCheck" line="354" column="9">
+          <Stream name="battery_level" type="int" class="input"><Value instant="0">96</Value>
+          </Stream>
+          <Stream name="ATE7" type="enum" values="Inadequate, Adequate" class="output"><Value instant="0">Adequate</Value>
+          </Stream>
+          <Stream name="next_ATE7" type="enum" values="Inadequate, Adequate" class="local"><Value instant="0">Adequate</Value>
+          </Stream>
+        </Node>
+        <Node name="RCReceiver" line="346" column="42">
+          <Stream name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="input"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="rcv_uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+          <Stream name="normal" type="bool" class="output"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" class="output"><Value instant="0">None</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="output"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+        </Node>
+        <Node name="RCReceiverHealthCheck" line="352" column="9">
+          <Stream name="normal" type="bool" class="input"><Value instant="0">true</Value>
+          </Stream>
+          <Stream name="ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="output"><Value instant="0">RC_Normal</Value>
+          </Stream>
+          <Stream name="next_ATE6" type="enum" values="RC_Abnormal, RC_Normal" class="local"><Value instant="0">RC_Normal</Value>
+          </Stream>
+          <Node name="duration" line="295" column="9">
+            <Stream name="p" type="bool" class="input"><Value instant="0">true</Value>
+            </Stream>
+            <Stream name="r" type="int" class="output"><Value instant="0">0</Value>
+            </Stream>
+          </Node>
+        </Node>
+        <Node name="StateController" line="356" column="11">
+          <Stream name="ATE6" type="int" class="input"><Value instant="0">31</Value>
+          </Stream>
+          <Stream name="ATE7" type="int" class="input"><Value instant="0">33</Value>
+          </Stream>
+          <Stream name="uavMode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+          </Stream>
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="output">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+        </Node>
+        <Node name="Mixer" line="348" column="8">
+          <Stream name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" class="input">
+            <Value instant="0">s_RETURN_TO_LAUNCH</Value>
+          </Stream>
+          <Stream name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Move_Forward</Value>
+          </Stream>
+          <Stream name="moveNav" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="input"><Value instant="0">Stop</Value>
+          </Stream>
+          <Stream name="currentDir" type="enum" values="North, South, East, West" class="input"><Value instant="0">North</Value>
+          </Stream>
+          <Stream name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" class="output">
+            <Value instant="0">NoChange</Value>
+          </Stream>
+          <Stream name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" class="local"><Value instant="0">Stop</Value>
+          </Stream>
+        </Node>
+      </Node>
+    </Node>
+  </CounterExample>
+</Property>
+<Property name="Scenario1Spec[l431c2].e3_appropriate_movement_in_west[7]" line="403" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.264</Runtime>
+  <Answer source="ind">valid</Answer>
+</Property>
+<Property name="Scenario1Spec[l431c2].h_pilot_only_takes_picture[10]" line="417" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.264</Runtime>
+  <Answer source="ind2">valid</Answer>
+</Property>
+<Property name="Scenario1Spec[l431c2].e4_appropriate_movement_in_north[8]" line="406" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.264</Runtime>
+  <Answer source="ind">valid</Answer>
+</Property>
+<Property name="Scenario1Spec[l431c2].g_picture_only_in_-2,2[9]" line="412" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.264</Runtime>
+  <Answer source="ind2">valid</Answer>
+</Property>
+<Property name="Scenario1Spec[l431c2].e1_appropriate_movement_in_north[5]" line="397" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.264</Runtime>
+  <Answer source="ind">valid</Answer>
+</Property>
+<Property name="Scenario1Spec[l431c2].e2_appropriate_movement_in_east[6]" line="400" column="4" scope="Scenario1">
+  <Runtime unit="sec" timeout="false">0.264</Runtime>
+  <Answer source="ind">valid</Answer>
+</Property>
+
+<AnalysisStop/>
+
+
+
+</Results>

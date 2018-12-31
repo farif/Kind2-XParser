@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<Results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" enabled="bmc,ind,ind2,ic3,invgents,invgenos,invgenintos,invgenintos" timeout="0.000000" bmc_max="0" compositional="false" modular="false">
+
+
+<Log class="info" source="parse">kind2 v1.1.0-267-ge8871cfb</Log>
+
+
+<AnalysisStart top="top" concrete="intcounter,greycounter" abstract="" assumptions=""/>
+
+<Property name="OK2" line="25" column="2">
+  <Runtime unit="sec" timeout="false">0.042</Runtime>
+  <K>2</K>
+  <Answer source="bmc">falsifiable</Answer>
+   <CounterExample>
+    <Node name="top">
+      <Stream name="reset" type="bool" class="input">
+        <Value instant="0">false</Value>
+        <Value instant="1">false</Value>
+        <Value instant="2">false</Value>
+      </Stream>
+      <Stream name="OK2" type="bool" class="output">
+        <Value instant="0">true</Value>
+        <Value instant="1">true</Value>
+        <Value instant="2">false</Value>
+      </Stream>
+      <Stream name="d" type="bool" class="local">
+        <Value instant="0">false</Value>
+        <Value instant="1">false</Value>
+        <Value instant="2">true</Value>
+      </Stream>
+      <Node name="intcounter" line="21" column="6">
+        <Stream name="reset" type="bool" class="input">
+          <Value instant="0">false</Value>
+          <Value instant="1">false</Value>
+          <Value instant="2">false</Value>
+        </Stream>
+        <Stream name="max" type="int" class="input">
+          <Value instant="0">3</Value>
+          <Value instant="1">3</Value>
+          <Value instant="2">3</Value>
+        </Stream>
+        <Stream name="out" type="bool" class="output">
+          <Value instant="0">false</Value>
+          <Value instant="1">false</Value>
+          <Value instant="2">true</Value>
+        </Stream>
+        <Stream name="t" type="int" class="local">
+          <Value instant="0">0</Value>
+          <Value instant="1">1</Value>
+          <Value instant="2">2</Value>
+        </Stream>
+      </Node>
+    </Node>
+  </CounterExample>
+</Property>
+<Property name="OK" line="24" column="2">
+  <Runtime unit="sec" timeout="false">0.063</Runtime>
+  <Answer source="ind">valid</Answer>
+</Property>
+
+<AnalysisStop/>
+
+
+
+</Results>

@@ -1,0 +1,19494 @@
+<?xml version="1.0"?>
+
+-<Results modular="false" compositional="false" bmc_max="0" timeout="0.000000" enabled="bmc,ind,ind2,ic3,invgents,invgenos,invgenintos,invgenintos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<Log source="parse" class="info">kind2 v1.1.0-283-g270c506c</Log>
+
+<AnalysisStart assumptions="" abstract="choose_tampered_pos,choose_tampered_movement,choose_tampered_mode,choose_tampered_dir,choose_tampered_action,choose_battery_consumption" concrete="yaw2dir,trusted_gps_simulator,state_controller,position_estimator,pilot_simulator,navigator,multiplexer,mixer,mission_planner,is_equal,flying_simulator,flight_controller,channel_poe2mix,channel_plo2rcr,channel_mul2mix,channel_mul2act,channel_gps2pes,battery_health_check,actuator_simulator,RC_receiver_health_check,RC_receiver,Duration" top="uas"/>
+
+
+-<Property file="contract.lus" scope="uas" column="4" line="58" name="con_uas[l326c12].a_picture_only_in_m1_waypoint[1]">
+
+<Runtime timeout="false" unit="sec">0.242</Runtime>
+
+<Answer source="ind">valid</Answer>
+
+</Property>
+
+
+-<Property file="contract.lus" scope="uas" column="4" line="63" name="con_uas[l326c12].b_weapon_only_in_m2_waypoint[2]">
+
+<Runtime timeout="false" unit="sec">0.242</Runtime>
+
+<Answer source="ind">valid</Answer>
+
+</Property>
+
+
+-<Property file="contract.lus" scope="uas" column="4" line="68" name="con_uas[l326c12].c_not_taking_picture_on_arbitrary_location[3]">
+
+<Runtime timeout="false" unit="sec">0.242</Runtime>
+
+<Answer source="ind">valid</Answer>
+
+</Property>
+
+
+-<Property file="contract.lus" scope="uas" column="4" line="73" name="con_uas[l326c12].d_not_releasing_weapon_on_arbitrary_location[4]">
+
+<Runtime timeout="false" unit="sec">0.242</Runtime>
+
+<Answer source="ind">valid</Answer>
+
+</Property>
+
+
+-<Property file="contract.lus" scope="uas" column="4" line="102" name="con_uas[l326c12].h_pilot_only_takes_picture[7]">
+
+<Runtime timeout="false" unit="sec">0.677</Runtime>
+
+<K>5</K>
+
+<Answer source="bmc">falsifiable</Answer>
+
+
+-<CounterExample>
+
+
+-<Node name="uas">
+
+
+-<Stream class="input" name="poe2mix_mov_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="mul2mix_mov_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="mul2act_act_is_instrumented" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">true</Value>
+
+<Value instant="3">true</Value>
+
+<Value instant="4">true</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="gps2pes_pos_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="plo2rcr_act_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="plo2rcr_mov_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="plo2rcr_mod_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="plo2rcr_is_encripted" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m1.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m1.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m1.waypoint.x" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m1.waypoint.y" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m2.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Weapon</Value>
+
+<Value instant="1">Weapon</Value>
+
+<Value instant="2">Weapon</Value>
+
+<Value instant="3">Weapon</Value>
+
+<Value instant="4">Weapon</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m2.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m2.waypoint.x" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m2.waypoint.y" type="subrange" max="2" min="2">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m3.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Land</Value>
+
+<Value instant="1">Land</Value>
+
+<Value instant="2">Land</Value>
+
+<Value instant="3">Land</Value>
+
+<Value instant="4">Land</Value>
+
+<Value instant="5">Land</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m3.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m3.waypoint.x" type="subrange" max="2" min="2">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m3.waypoint.y" type="subrange" max="2" min="2">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task1.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task1.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task1.waypoint.x" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task1.waypoint.y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task2.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Weapon</Value>
+
+<Value instant="1">Weapon</Value>
+
+<Value instant="2">Weapon</Value>
+
+<Value instant="3">Weapon</Value>
+
+<Value instant="4">Weapon</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task2.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task2.waypoint.x" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task2.waypoint.y" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task3.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Land</Value>
+
+<Value instant="1">Land</Value>
+
+<Value instant="2">Land</Value>
+
+<Value instant="3">Land</Value>
+
+<Value instant="4">Land</Value>
+
+<Value instant="5">Land</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task3.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task3.waypoint.x" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task3.waypoint.y" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="dest_reached" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="payload_performed" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="waypointPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">0</Value>
+
+<Value instant="5">0</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="waypointPos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">0</Value>
+
+<Value instant="5">0</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="estimatedPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="estimatedPos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="estimatedDir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="battery_level" type="int">
+
+<Value instant="0">96</Value>
+
+<Value instant="1">92</Value>
+
+<Value instant="2">88</Value>
+
+<Value instant="3">84</Value>
+
+<Value instant="4">80</Value>
+
+<Value instant="5">76</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" enumName="MotorCommand">
+
+<Value instant="0">IncreaseY</Value>
+
+<Value instant="1">IncreaseY</Value>
+
+<Value instant="2">DecreaseYaw</Value>
+
+<Value instant="3">DecreaseX</Value>
+
+<Value instant="4">DecreaseX</Value>
+
+<Value instant="5">NoChange</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="mul2mix_movement" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="moveNA" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Stop</Value>
+
+<Value instant="1">Turn_Right</Value>
+
+<Value instant="2">Turn_Right</Value>
+
+<Value instant="3">Turn_Left</Value>
+
+<Value instant="4">Turn_Right</Value>
+
+<Value instant="5">Turn_Right</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="mul2act_payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">None</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="plo2rcr_payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="gps2pes_GPS_pos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="gps2pes_GPS_pos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="gps2pes_GPS_dir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="poe2mix_dir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="currPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="currPos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="nextPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">-1</Value>
+
+<Value instant="4">-2</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="nextPos.y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="currDir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="nextDir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">West</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="moveRC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="plo2rcr_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="modeRC" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="plo2rcr_mode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" enumName="YawAngle">
+
+<Value instant="0">Y_0</Value>
+
+<Value instant="1">Y_0</Value>
+
+<Value instant="2">Y_270</Value>
+
+<Value instant="3">Y_270</Value>
+
+<Value instant="4">Y_270</Value>
+
+<Value instant="5">Y_270</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">-1</Value>
+
+<Value instant="4">-2</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="ATE6" type="subrange" max="1" min="0">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="rc_eval_result" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">true</Value>
+
+<Value instant="3">true</Value>
+
+<Value instant="4">true</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="pilot_payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="pilot_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="pilot_mode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="ATE7" type="subrange" max="1" min="0">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Node column="25" line="394" name="channel_mul2act">
+
+
+-<Stream class="input" name="is_instrumented" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">true</Value>
+
+<Value instant="3">true</Value>
+
+<Value instant="4">true</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+
+-<Node file="channel.lus" column="47" line="18" name="choose_tampered_action">
+
+
+-<Stream class="input" name="i" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+</Node>
+
+</Node>
+
+
+-<Node column="18" line="398" name="channel_poe2mix">
+
+
+-<Stream class="input" name="is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_dir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_dir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Node file="channel.lus" column="40" line="4" name="choose_tampered_dir">
+
+
+-<Stream class="input" name="i" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">South</Value>
+
+<Value instant="1">South</Value>
+
+<Value instant="2">South</Value>
+
+<Value instant="3">North</Value>
+
+<Value instant="4">North</Value>
+
+<Value instant="5">North</Value>
+
+</Stream>
+
+</Node>
+
+</Node>
+
+
+-<Node column="17" line="372" name="mission_planner">
+
+
+-<Stream class="output" name="task1.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task1.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task1.waypoint.x" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task1.waypoint.y" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task2.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Weapon</Value>
+
+<Value instant="1">Weapon</Value>
+
+<Value instant="2">Weapon</Value>
+
+<Value instant="3">Weapon</Value>
+
+<Value instant="4">Weapon</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task2.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task2.waypoint.x" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task2.waypoint.y" type="subrange" max="2" min="2">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task3.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Land</Value>
+
+<Value instant="1">Land</Value>
+
+<Value instant="2">Land</Value>
+
+<Value instant="3">Land</Value>
+
+<Value instant="4">Land</Value>
+
+<Value instant="5">Land</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task3.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task3.waypoint.x" type="subrange" max="2" min="2">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="task3.waypoint.y" type="subrange" max="2" min="2">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="53" line="383" name="flight_controller">
+
+
+-<Stream class="input" name="dest_reached" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="payload_performed" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task1.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task1.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task1.waypoint.x" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task1.waypoint.y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task2.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Weapon</Value>
+
+<Value instant="1">Weapon</Value>
+
+<Value instant="2">Weapon</Value>
+
+<Value instant="3">Weapon</Value>
+
+<Value instant="4">Weapon</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task2.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task2.waypoint.x" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task2.waypoint.y" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task3.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Land</Value>
+
+<Value instant="1">Land</Value>
+
+<Value instant="2">Land</Value>
+
+<Value instant="3">Land</Value>
+
+<Value instant="4">Land</Value>
+
+<Value instant="5">Land</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task3.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task3.waypoint.x" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="task3.waypoint.y" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">None</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="waypoint.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">0</Value>
+
+<Value instant="5">0</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="waypoint.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">0</Value>
+
+<Value instant="5">0</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task1.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task1.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task1.waypoint.x" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task1.waypoint.y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task2.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Weapon</Value>
+
+<Value instant="1">Weapon</Value>
+
+<Value instant="2">Weapon</Value>
+
+<Value instant="3">Weapon</Value>
+
+<Value instant="4">Weapon</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task2.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task2.waypoint.x" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task2.waypoint.y" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task3.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Land</Value>
+
+<Value instant="1">Land</Value>
+
+<Value instant="2">Land</Value>
+
+<Value instant="3">Land</Value>
+
+<Value instant="4">Land</Value>
+
+<Value instant="5">Land</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task3.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task3.waypoint.x" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="upd_task3.waypoint.y" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="27" line="390" name="navigator">
+
+
+-<Stream class="input" name="currentPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="currentPos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="waypointPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">0</Value>
+
+<Value instant="5">0</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="waypointPos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">0</Value>
+
+<Value instant="5">0</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="currentDir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Stop</Value>
+
+<Value instant="1">Turn_Right</Value>
+
+<Value instant="2">Turn_Right</Value>
+
+<Value instant="3">Turn_Left</Value>
+
+<Value instant="4">Turn_Right</Value>
+
+<Value instant="5">Turn_Right</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="desReached" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="11" line="412" name="battery_health_check">
+
+
+-<Stream class="input" name="battery_level" type="int">
+
+<Value instant="0">96</Value>
+
+<Value instant="1">92</Value>
+
+<Value instant="2">88</Value>
+
+<Value instant="3">84</Value>
+
+<Value instant="4">80</Value>
+
+<Value instant="5">76</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="ATE7" type="subrange" max="1" min="0">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="first_level" type="subrange" max="20" min="20">
+
+<Value instant="0">20</Value>
+
+<Value instant="1">20</Value>
+
+<Value instant="2">20</Value>
+
+<Value instant="3">20</Value>
+
+<Value instant="4">20</Value>
+
+<Value instant="5">20</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="47" line="362" name="pilot_simulator">
+
+
+-<Stream class="output" name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="mode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="53" line="364" name="channel_plo2rcr">
+
+
+-<Stream class="input" name="action_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="movment_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="mode_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="is_encripted" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_pilot_payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_pilot_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_pilot_mode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_pilot_payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_pilot_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_pilot_mode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Node file="channel.lus" column="73" line="42" name="choose_tampered_mode">
+
+
+-<Stream class="input" name="i" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_RETURN_TO_LAUNCH</Value>
+
+<Value instant="1">s_RETURN_TO_LAUNCH</Value>
+
+<Value instant="2">s_RETURN_TO_LAUNCH</Value>
+
+<Value instant="3">s_RETURN_TO_LAUNCH</Value>
+
+<Value instant="4">s_RETURN_TO_LAUNCH</Value>
+
+<Value instant="5">s_RETURN_TO_LAUNCH</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node file="channel.lus" column="76" line="40" name="choose_tampered_movement">
+
+
+-<Stream class="input" name="i" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Turn_Right</Value>
+
+<Value instant="1">Turn_Right</Value>
+
+<Value instant="2">Turn_Right</Value>
+
+<Value instant="3">Stop</Value>
+
+<Value instant="4">Stop</Value>
+
+<Value instant="5">Turn_Right</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node file="channel.lus" column="81" line="38" name="choose_tampered_action">
+
+
+-<Stream class="input" name="i" type="int">
+
+<Value instant="0">2</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+</Node>
+
+</Node>
+
+
+-<Node column="51" line="408" name="RC_receiver">
+
+
+-<Stream class="input" name="rcv_payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="rcv_move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="rcv_mode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="normal" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">true</Value>
+
+<Value instant="3">true</Value>
+
+<Value instant="4">true</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="mode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="11" line="410" name="RC_receiver_health_check">
+
+
+-<Stream class="input" name="normal" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">true</Value>
+
+<Value instant="3">true</Value>
+
+<Value instant="4">true</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="ATE6" type="subrange" max="1" min="0">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="tolerance_level" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Node column="14" line="263" name="Duration">
+
+
+-<Stream class="input" name="p" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">true</Value>
+
+<Value instant="3">true</Value>
+
+<Value instant="4">true</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="r" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">0</Value>
+
+<Value instant="5">0</Value>
+
+</Stream>
+
+</Node>
+
+</Node>
+
+
+-<Node column="13" line="414" name="state_controller">
+
+
+-<Stream class="input" name="ATE6" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="ATE7" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="mode" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="23" line="392" name="multiplexer">
+
+
+-<Stream class="input" name="mstate" type="enum" values="s_RETURN_TO_LAUNCH, s_AUTO_FLIGHT_MODE, s_MANUAL_FLIGHT_MODE" enumName="UAVState">
+
+<Value instant="0">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="1">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="2">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="3">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="4">s_MANUAL_FLIGHT_MODE</Value>
+
+<Value instant="5">s_MANUAL_FLIGHT_MODE</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="move_RC" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="moveNA" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Stop</Value>
+
+<Value instant="1">Turn_Right</Value>
+
+<Value instant="2">Turn_Right</Value>
+
+<Value instant="3">Turn_Left</Value>
+
+<Value instant="4">Turn_Right</Value>
+
+<Value instant="5">Turn_Right</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="payloadCmdRC" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="payloadCmdAF" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">None</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="payloadCmd" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">None</Value>
+
+<Value instant="1">None</Value>
+
+<Value instant="2">None</Value>
+
+<Value instant="3">None</Value>
+
+<Value instant="4">None</Value>
+
+<Value instant="5">Camera</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="23" line="396" name="channel_mul2mix">
+
+
+-<Stream class="input" name="is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_movement" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_movement" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Node file="channel.lus" column="45" line="11" name="choose_tampered_movement">
+
+
+-<Stream class="input" name="i" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Stop</Value>
+
+<Value instant="1">Turn_Right</Value>
+
+<Value instant="2">Turn_Right</Value>
+
+<Value instant="3">Stop</Value>
+
+<Value instant="4">Turn_Right</Value>
+
+<Value instant="5">Turn_Right</Value>
+
+</Stream>
+
+</Node>
+
+</Node>
+
+
+-<Node column="10" line="400" name="mixer">
+
+
+-<Stream class="input" name="move" type="enum" values="Turn_Right, Turn_Left, Move_Forward, Stop" enumName="Movement">
+
+<Value instant="0">Move_Forward</Value>
+
+<Value instant="1">Move_Forward</Value>
+
+<Value instant="2">Turn_Left</Value>
+
+<Value instant="3">Move_Forward</Value>
+
+<Value instant="4">Move_Forward</Value>
+
+<Value instant="5">Stop</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="currentDir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" enumName="MotorCommand">
+
+<Value instant="0">IncreaseY</Value>
+
+<Value instant="1">IncreaseY</Value>
+
+<Value instant="2">DecreaseYaw</Value>
+
+<Value instant="3">DecreaseX</Value>
+
+<Value instant="4">DecreaseX</Value>
+
+<Value instant="5">NoChange</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="23" line="406" name="flying_simulator">
+
+
+-<Stream class="input" name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" enumName="YawAngle">
+
+<Value instant="0">Y_0</Value>
+
+<Value instant="1">Y_0</Value>
+
+<Value instant="2">Y_270</Value>
+
+<Value instant="3">Y_270</Value>
+
+<Value instant="4">Y_270</Value>
+
+<Value instant="5">Y_270</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">-1</Value>
+
+<Value instant="4">-2</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="nextPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">-1</Value>
+
+<Value instant="4">-2</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="nextPos.y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="nextDir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">West</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="new_position.y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="new_position.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">-1</Value>
+
+<Value instant="4">-2</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Node column="14" line="253" name="yaw2dir">
+
+
+-<Stream class="input" name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" enumName="YawAngle">
+
+<Value instant="0">Y_0</Value>
+
+<Value instant="1">Y_0</Value>
+
+<Value instant="2">Y_270</Value>
+
+<Value instant="3">Y_270</Value>
+
+<Value instant="4">Y_270</Value>
+
+<Value instant="5">Y_270</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="dir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">West</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+</Node>
+
+</Node>
+
+
+-<Node column="39" line="374" name="channel_gps2pes">
+
+
+-<Stream class="input" name="is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_GPS_pos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_GPS_pos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="in_GPS_dir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_GPS_pos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_GPS_pos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="out_GPS_dir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Node file="channel.lus" column="58" line="25" name="choose_tampered_pos">
+
+
+-<Stream class="input" name="i" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o.x" type="int">
+
+<Value instant="0">69</Value>
+
+<Value instant="1">209</Value>
+
+<Value instant="2">365</Value>
+
+<Value instant="3">521</Value>
+
+<Value instant="4">670</Value>
+
+<Value instant="5">824</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o.y" type="int">
+
+<Value instant="0">71</Value>
+
+<Value instant="1">211</Value>
+
+<Value instant="2">367</Value>
+
+<Value instant="3">523</Value>
+
+<Value instant="4">672</Value>
+
+<Value instant="5">826</Value>
+
+</Stream>
+
+</Node>
+
+</Node>
+
+
+-<Node column="33" line="378" name="position_estimator">
+
+
+-<Stream class="input" name="GPS_pos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="GPS_pos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="GPS_dir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="estimatedPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="estimatedPos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="estimatedDir" type="enum" values="North, South, East, West" enumName="Direction">
+
+<Value instant="0">North</Value>
+
+<Value instant="1">North</Value>
+
+<Value instant="2">North</Value>
+
+<Value instant="3">West</Value>
+
+<Value instant="4">West</Value>
+
+<Value instant="5">West</Value>
+
+</Stream>
+
+</Node>
+
+
+-<Node column="50" line="402" name="actuator_simulator">
+
+
+-<Stream class="input" name="battery_level" type="int">
+
+<Value instant="0">100</Value>
+
+<Value instant="1">96</Value>
+
+<Value instant="2">92</Value>
+
+<Value instant="3">88</Value>
+
+<Value instant="4">84</Value>
+
+<Value instant="5">80</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="currentPos.x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">0</Value>
+
+<Value instant="4">-1</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="currentPos.y" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="cmd" type="enum" values="IncreaseX, DecreaseX, IncreaseY, DecreaseY, IncreaseYaw, DecreaseYaw, NoChange" enumName="MotorCommand">
+
+<Value instant="0">IncreaseY</Value>
+
+<Value instant="1">IncreaseY</Value>
+
+<Value instant="2">DecreaseYaw</Value>
+
+<Value instant="3">DecreaseX</Value>
+
+<Value instant="4">DecreaseX</Value>
+
+<Value instant="5">NoChange</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="payloadCMD" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Weapon</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="new_battery_level" type="int">
+
+<Value instant="0">96</Value>
+
+<Value instant="1">92</Value>
+
+<Value instant="2">88</Value>
+
+<Value instant="3">84</Value>
+
+<Value instant="4">80</Value>
+
+<Value instant="5">76</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="x" type="int">
+
+<Value instant="0">0</Value>
+
+<Value instant="1">0</Value>
+
+<Value instant="2">0</Value>
+
+<Value instant="3">-1</Value>
+
+<Value instant="4">-2</Value>
+
+<Value instant="5">-2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="y" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">2</Value>
+
+<Value instant="2">2</Value>
+
+<Value instant="3">2</Value>
+
+<Value instant="4">2</Value>
+
+<Value instant="5">2</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="yaw" type="enum" values="Y_0, Y_90, Y_180, Y_270" enumName="YawAngle">
+
+<Value instant="0">Y_0</Value>
+
+<Value instant="1">Y_0</Value>
+
+<Value instant="2">Y_270</Value>
+
+<Value instant="3">Y_270</Value>
+
+<Value instant="4">Y_270</Value>
+
+<Value instant="5">Y_270</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="payload_performed" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="battery4pos_consumed" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">true</Value>
+
+<Value instant="4">true</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="battery4dir_consumed" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">true</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+</Stream>
+
+
+-<Stream class="local" name="battery4pay_consumed" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">true</Value>
+
+</Stream>
+
+
+-<Node column="109" line="241" name="choose_battery_consumption">
+
+
+-<Stream class="input" name="i" type="int">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="o" type="int">
+
+<Value instant="0">4</Value>
+
+<Value instant="1">4</Value>
+
+<Value instant="2">4</Value>
+
+<Value instant="3">4</Value>
+
+<Value instant="4">4</Value>
+
+<Value instant="5">4</Value>
+
+</Stream>
+
+</Node>
+
+</Node>
+
+</Node>
+
+</CounterExample>
+
+</Property>
+
+
+-<Property file="contract.lus" scope="uas" column="4" line="97" name="con_uas[l326c12].g_picture_only_in_-2,2[6]">
+
+<Runtime timeout="false" unit="sec">12.830</Runtime>
+
+<K>27</K>
+
+<Answer source="bmc">falsifiable</Answer>
+
+
+-<CounterExample>
+
+
+-<Node name="uas">
+
+
+-<Stream class="input" name="poe2mix_mov_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+<Value instant="6">false</Value>
+
+<Value instant="7">false</Value>
+
+<Value instant="8">false</Value>
+
+<Value instant="9">false</Value>
+
+<Value instant="10">false</Value>
+
+<Value instant="11">false</Value>
+
+<Value instant="12">false</Value>
+
+<Value instant="13">false</Value>
+
+<Value instant="14">false</Value>
+
+<Value instant="15">false</Value>
+
+<Value instant="16">false</Value>
+
+<Value instant="17">false</Value>
+
+<Value instant="18">false</Value>
+
+<Value instant="19">false</Value>
+
+<Value instant="20">false</Value>
+
+<Value instant="21">false</Value>
+
+<Value instant="22">false</Value>
+
+<Value instant="23">false</Value>
+
+<Value instant="24">false</Value>
+
+<Value instant="25">false</Value>
+
+<Value instant="26">false</Value>
+
+<Value instant="27">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="mul2mix_mov_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+<Value instant="6">false</Value>
+
+<Value instant="7">false</Value>
+
+<Value instant="8">false</Value>
+
+<Value instant="9">false</Value>
+
+<Value instant="10">false</Value>
+
+<Value instant="11">false</Value>
+
+<Value instant="12">false</Value>
+
+<Value instant="13">false</Value>
+
+<Value instant="14">false</Value>
+
+<Value instant="15">false</Value>
+
+<Value instant="16">false</Value>
+
+<Value instant="17">false</Value>
+
+<Value instant="18">false</Value>
+
+<Value instant="19">false</Value>
+
+<Value instant="20">false</Value>
+
+<Value instant="21">false</Value>
+
+<Value instant="22">false</Value>
+
+<Value instant="23">false</Value>
+
+<Value instant="24">false</Value>
+
+<Value instant="25">false</Value>
+
+<Value instant="26">false</Value>
+
+<Value instant="27">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="mul2act_act_is_instrumented" type="bool">
+
+<Value instant="0">true</Value>
+
+<Value instant="1">true</Value>
+
+<Value instant="2">true</Value>
+
+<Value instant="3">true</Value>
+
+<Value instant="4">true</Value>
+
+<Value instant="5">true</Value>
+
+<Value instant="6">true</Value>
+
+<Value instant="7">true</Value>
+
+<Value instant="8">true</Value>
+
+<Value instant="9">true</Value>
+
+<Value instant="10">true</Value>
+
+<Value instant="11">true</Value>
+
+<Value instant="12">true</Value>
+
+<Value instant="13">true</Value>
+
+<Value instant="14">true</Value>
+
+<Value instant="15">true</Value>
+
+<Value instant="16">true</Value>
+
+<Value instant="17">true</Value>
+
+<Value instant="18">true</Value>
+
+<Value instant="19">true</Value>
+
+<Value instant="20">true</Value>
+
+<Value instant="21">true</Value>
+
+<Value instant="22">true</Value>
+
+<Value instant="23">true</Value>
+
+<Value instant="24">true</Value>
+
+<Value instant="25">true</Value>
+
+<Value instant="26">true</Value>
+
+<Value instant="27">true</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="gps2pes_pos_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+<Value instant="6">false</Value>
+
+<Value instant="7">false</Value>
+
+<Value instant="8">false</Value>
+
+<Value instant="9">false</Value>
+
+<Value instant="10">false</Value>
+
+<Value instant="11">false</Value>
+
+<Value instant="12">false</Value>
+
+<Value instant="13">false</Value>
+
+<Value instant="14">false</Value>
+
+<Value instant="15">false</Value>
+
+<Value instant="16">false</Value>
+
+<Value instant="17">false</Value>
+
+<Value instant="18">false</Value>
+
+<Value instant="19">false</Value>
+
+<Value instant="20">false</Value>
+
+<Value instant="21">false</Value>
+
+<Value instant="22">false</Value>
+
+<Value instant="23">false</Value>
+
+<Value instant="24">false</Value>
+
+<Value instant="25">false</Value>
+
+<Value instant="26">false</Value>
+
+<Value instant="27">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="plo2rcr_act_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+<Value instant="6">false</Value>
+
+<Value instant="7">false</Value>
+
+<Value instant="8">false</Value>
+
+<Value instant="9">false</Value>
+
+<Value instant="10">false</Value>
+
+<Value instant="11">false</Value>
+
+<Value instant="12">false</Value>
+
+<Value instant="13">false</Value>
+
+<Value instant="14">false</Value>
+
+<Value instant="15">false</Value>
+
+<Value instant="16">false</Value>
+
+<Value instant="17">false</Value>
+
+<Value instant="18">false</Value>
+
+<Value instant="19">false</Value>
+
+<Value instant="20">false</Value>
+
+<Value instant="21">false</Value>
+
+<Value instant="22">false</Value>
+
+<Value instant="23">false</Value>
+
+<Value instant="24">false</Value>
+
+<Value instant="25">false</Value>
+
+<Value instant="26">false</Value>
+
+<Value instant="27">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="plo2rcr_mov_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+<Value instant="6">false</Value>
+
+<Value instant="7">false</Value>
+
+<Value instant="8">false</Value>
+
+<Value instant="9">false</Value>
+
+<Value instant="10">false</Value>
+
+<Value instant="11">false</Value>
+
+<Value instant="12">false</Value>
+
+<Value instant="13">false</Value>
+
+<Value instant="14">false</Value>
+
+<Value instant="15">false</Value>
+
+<Value instant="16">false</Value>
+
+<Value instant="17">false</Value>
+
+<Value instant="18">false</Value>
+
+<Value instant="19">false</Value>
+
+<Value instant="20">false</Value>
+
+<Value instant="21">false</Value>
+
+<Value instant="22">false</Value>
+
+<Value instant="23">false</Value>
+
+<Value instant="24">false</Value>
+
+<Value instant="25">false</Value>
+
+<Value instant="26">false</Value>
+
+<Value instant="27">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="plo2rcr_mod_is_instrumented" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+<Value instant="6">false</Value>
+
+<Value instant="7">false</Value>
+
+<Value instant="8">false</Value>
+
+<Value instant="9">false</Value>
+
+<Value instant="10">false</Value>
+
+<Value instant="11">false</Value>
+
+<Value instant="12">false</Value>
+
+<Value instant="13">false</Value>
+
+<Value instant="14">false</Value>
+
+<Value instant="15">false</Value>
+
+<Value instant="16">false</Value>
+
+<Value instant="17">false</Value>
+
+<Value instant="18">false</Value>
+
+<Value instant="19">false</Value>
+
+<Value instant="20">false</Value>
+
+<Value instant="21">false</Value>
+
+<Value instant="22">false</Value>
+
+<Value instant="23">false</Value>
+
+<Value instant="24">false</Value>
+
+<Value instant="25">false</Value>
+
+<Value instant="26">false</Value>
+
+<Value instant="27">false</Value>
+
+</Stream>
+
+
+-<Stream class="input" name="plo2rcr_is_encripted" type="bool">
+
+<Value instant="0">false</Value>
+
+<Value instant="1">false</Value>
+
+<Value instant="2">false</Value>
+
+<Value instant="3">false</Value>
+
+<Value instant="4">false</Value>
+
+<Value instant="5">false</Value>
+
+<Value instant="6">false</Value>
+
+<Value instant="7">false</Value>
+
+<Value instant="8">false</Value>
+
+<Value instant="9">false</Value>
+
+<Value instant="10">false</Value>
+
+<Value instant="11">false</Value>
+
+<Value instant="12">false</Value>
+
+<Value instant="13">false</Value>
+
+<Value instant="14">false</Value>
+
+<Value instant="15">false</Value>
+
+<Value instant="16">false</Value>
+
+<Value instant="17">false</Value>
+
+<Value instant="18">false</Value>
+
+<Value instant="19">false</Value>
+
+<Value instant="20">false</Value>
+
+<Value instant="21">false</Value>
+
+<Value instant="22">false</Value>
+
+<Value instant="23">false</Value>
+
+<Value instant="24">false</Value>
+
+<Value instant="25">false</Value>
+
+<Value instant="26">false</Value>
+
+<Value instant="27">false</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m1.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Camera</Value>
+
+<Value instant="1">Camera</Value>
+
+<Value instant="2">Camera</Value>
+
+<Value instant="3">Camera</Value>
+
+<Value instant="4">Camera</Value>
+
+<Value instant="5">Camera</Value>
+
+<Value instant="6">Camera</Value>
+
+<Value instant="7">Camera</Value>
+
+<Value instant="8">Camera</Value>
+
+<Value instant="9">Camera</Value>
+
+<Value instant="10">Camera</Value>
+
+<Value instant="11">Camera</Value>
+
+<Value instant="12">Camera</Value>
+
+<Value instant="13">Camera</Value>
+
+<Value instant="14">Camera</Value>
+
+<Value instant="15">Camera</Value>
+
+<Value instant="16">Camera</Value>
+
+<Value instant="17">Camera</Value>
+
+<Value instant="18">Camera</Value>
+
+<Value instant="19">Camera</Value>
+
+<Value instant="20">Camera</Value>
+
+<Value instant="21">Camera</Value>
+
+<Value instant="22">Camera</Value>
+
+<Value instant="23">Camera</Value>
+
+<Value instant="24">Camera</Value>
+
+<Value instant="25">Camera</Value>
+
+<Value instant="26">Camera</Value>
+
+<Value instant="27">Camera</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m1.status" type="enum" values="Successful, Aborted, InProgress, Started" enumName="TaskStatus">
+
+<Value instant="0">Started</Value>
+
+<Value instant="1">Started</Value>
+
+<Value instant="2">Started</Value>
+
+<Value instant="3">Started</Value>
+
+<Value instant="4">Started</Value>
+
+<Value instant="5">Started</Value>
+
+<Value instant="6">Started</Value>
+
+<Value instant="7">Started</Value>
+
+<Value instant="8">Started</Value>
+
+<Value instant="9">Started</Value>
+
+<Value instant="10">Started</Value>
+
+<Value instant="11">Started</Value>
+
+<Value instant="12">Started</Value>
+
+<Value instant="13">Started</Value>
+
+<Value instant="14">Started</Value>
+
+<Value instant="15">Started</Value>
+
+<Value instant="16">Started</Value>
+
+<Value instant="17">Started</Value>
+
+<Value instant="18">Started</Value>
+
+<Value instant="19">Started</Value>
+
+<Value instant="20">Started</Value>
+
+<Value instant="21">Started</Value>
+
+<Value instant="22">Started</Value>
+
+<Value instant="23">Started</Value>
+
+<Value instant="24">Started</Value>
+
+<Value instant="25">Started</Value>
+
+<Value instant="26">Started</Value>
+
+<Value instant="27">Started</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m1.waypoint.x" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+<Value instant="6">1</Value>
+
+<Value instant="7">1</Value>
+
+<Value instant="8">1</Value>
+
+<Value instant="9">1</Value>
+
+<Value instant="10">1</Value>
+
+<Value instant="11">1</Value>
+
+<Value instant="12">1</Value>
+
+<Value instant="13">1</Value>
+
+<Value instant="14">1</Value>
+
+<Value instant="15">1</Value>
+
+<Value instant="16">1</Value>
+
+<Value instant="17">1</Value>
+
+<Value instant="18">1</Value>
+
+<Value instant="19">1</Value>
+
+<Value instant="20">1</Value>
+
+<Value instant="21">1</Value>
+
+<Value instant="22">1</Value>
+
+<Value instant="23">1</Value>
+
+<Value instant="24">1</Value>
+
+<Value instant="25">1</Value>
+
+<Value instant="26">1</Value>
+
+<Value instant="27">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m1.waypoint.y" type="subrange" max="1" min="1">
+
+<Value instant="0">1</Value>
+
+<Value instant="1">1</Value>
+
+<Value instant="2">1</Value>
+
+<Value instant="3">1</Value>
+
+<Value instant="4">1</Value>
+
+<Value instant="5">1</Value>
+
+<Value instant="6">1</Value>
+
+<Value instant="7">1</Value>
+
+<Value instant="8">1</Value>
+
+<Value instant="9">1</Value>
+
+<Value instant="10">1</Value>
+
+<Value instant="11">1</Value>
+
+<Value instant="12">1</Value>
+
+<Value instant="13">1</Value>
+
+<Value instant="14">1</Value>
+
+<Value instant="15">1</Value>
+
+<Value instant="16">1</Value>
+
+<Value instant="17">1</Value>
+
+<Value instant="18">1</Value>
+
+<Value instant="19">1</Value>
+
+<Value instant="20">1</Value>
+
+<Value instant="21">1</Value>
+
+<Value instant="22">1</Value>
+
+<Value instant="23">1</Value>
+
+<Value instant="24">1</Value>
+
+<Value instant="25">1</Value>
+
+<Value instant="26">1</Value>
+
+<Value instant="27">1</Value>
+
+</Stream>
+
+
+-<Stream class="output" name="m2.action" type="enum" values="Camera, Weapon, Land, None" enumName="Action">
+
+<Value instant="0">Weapon</Value>
+
+<Value instant="1">Weapon</Value>
+
+<Value instant="2">Weapon</Value>
+
+<Value instant="3">Weapon</Value>
+
+<Value instant="4">Weapon</Value>
+
+<Value instant="5">Weapon</Value>
+
+<Value instant="6">Weapon</Value>
+
+<Value instant="7">Weapon</Value>
+
+<Value instant="8">Weapon</Value>
+
+<Value instant="9">Weapon</Value>
+
+<Value instant="10">Weapon</Value>
+
+<Value instant="11">Weapon</Value>
+
+<Value instant="12">Weapon</Value>
+
+<Value instant="13">Weapon</Value>
+
+<Value instant="14">Weapon</Value>
+
+<Value instant="15">Weapon</Value>
+
+<Value instant="16">Weapon</Value>
+
+<Value instant="17">Weapon</Value>
+
+<Value instant="18">Weapon</Value>
+
+<Value instant="19">Weapon</Value>
+
+<Value instant="20">Weapon</Value>
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+</Stream>
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+true
+
+true
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+96
+
+92
+
+88
+
+84
+
+80
+
+76
+
+72
+
+68
+
+64
+
+60
+
+56
+
+52
+
+48
+
+44
+
+40
+
+36
+
+32
+
+28
+
+24
+
+20
+
+19
+
+18
+
+17
+
+16
+
+15
+
+14
+
+13
+
+12
+
+
+IncreaseY
+
+IncreaseY
+
+DecreaseYaw
+
+DecreaseX
+
+DecreaseX
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+IncreaseYaw
+
+IncreaseYaw
+
+IncreaseX
+
+IncreaseX
+
+IncreaseYaw
+
+DecreaseY
+
+DecreaseY
+
+NoChange
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Turn_Left
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+Camera
+
+Weapon
+
+None
+
+None
+
+None
+
+None
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+None
+
+None
+
+None
+
+Weapon
+
+Camera
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+None
+
+Weapon
+
+Weapon
+
+None
+
+Weapon
+
+None
+
+None
+
+None
+
+Camera
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+South
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+
+Y_0
+
+Y_0
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_0
+
+Y_90
+
+Y_90
+
+Y_90
+
+Y_180
+
+Y_180
+
+Y_180
+
+Y_180
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+IncreaseY
+
+IncreaseY
+
+DecreaseYaw
+
+DecreaseX
+
+DecreaseX
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+IncreaseYaw
+
+IncreaseYaw
+
+IncreaseX
+
+IncreaseX
+
+IncreaseYaw
+
+DecreaseY
+
+DecreaseY
+
+NoChange
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+South
+
+
+Y_0
+
+Y_0
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_0
+
+Y_90
+
+Y_90
+
+Y_90
+
+Y_180
+
+Y_180
+
+Y_180
+
+Y_180
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+100
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+IncreaseY
+
+IncreaseY
+
+DecreaseYaw
+
+DecreaseX
+
+DecreaseX
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+IncreaseYaw
+
+IncreaseYaw
+
+IncreaseX
+
+IncreaseX
+
+IncreaseYaw
+
+DecreaseY
+
+DecreaseY
+
+NoChange
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+99
+
+99
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+96
+
+99
+
+99
+
+99
+
+99
+
+99
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+Y_0
+
+Y_0
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_0
+
+Y_90
+
+Y_90
+
+Y_90
+
+Y_180
+
+Y_180
+
+Y_180
+
+Y_180
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+true
+
+true
+
+false
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+false
+
+false
+
+true
+
+true
+
+false
+
+true
+
+true
+
+true
+
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+1
+
+1
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+
+Y_0
+
+Y_0
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_0
+
+Y_90
+
+Y_90
+
+Y_90
+
+Y_180
+
+Y_180
+
+Y_180
+
+Y_180
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+South
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+
+Y_0
+
+Y_0
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_0
+
+Y_90
+
+Y_90
+
+Y_90
+
+Y_180
+
+Y_180
+
+Y_180
+
+Y_180
+
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+South
+
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Camera
+
+Weapon
+
+None
+
+None
+
+None
+
+None
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+None
+
+None
+
+None
+
+Weapon
+
+Camera
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+None
+
+Weapon
+
+Weapon
+
+None
+
+Weapon
+
+None
+
+None
+
+None
+
+Camera
+
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+Camera
+
+Weapon
+
+None
+
+None
+
+None
+
+None
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+None
+
+None
+
+None
+
+Weapon
+
+Camera
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+None
+
+Weapon
+
+Weapon
+
+None
+
+Weapon
+
+None
+
+None
+
+None
+
+Camera
+
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+South
+
+South
+
+South
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+North
+
+South
+
+North
+
+West
+
+West
+
+North
+
+North
+
+North
+
+
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+
+false
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+true
+
+true
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+Land
+
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+Started
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Turn_Left
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+
+
+96
+
+92
+
+88
+
+84
+
+80
+
+76
+
+72
+
+68
+
+64
+
+60
+
+56
+
+52
+
+48
+
+44
+
+40
+
+36
+
+32
+
+28
+
+24
+
+20
+
+19
+
+18
+
+17
+
+16
+
+15
+
+14
+
+13
+
+12
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+20
+
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Stop
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+
+Camera
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Camera
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Weapon
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Camera
+
+Weapon
+
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_MANUAL_FLIGHT_MODE
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+s_RETURN_TO_LAUNCH
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Turn_Left
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+None
+
+None
+
+None
+
+None
+
+None
+
+Camera
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+None
+
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+Stop
+
+Turn_Right
+
+Move_Forward
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Right
+
+Turn_Left
+
+Turn_Left
+
+Turn_Left
+
+Turn_Left
+
+Stop
+
+Turn_Left
+
+Turn_Left
+
+Move_Forward
+
+
+
+Move_Forward
+
+Move_Forward
+
+Turn_Left
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Stop
+
+Turn_Right
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Turn_Right
+
+Move_Forward
+
+Move_Forward
+
+Stop
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+IncreaseY
+
+IncreaseY
+
+DecreaseYaw
+
+DecreaseX
+
+DecreaseX
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+IncreaseYaw
+
+IncreaseYaw
+
+IncreaseX
+
+IncreaseX
+
+IncreaseYaw
+
+DecreaseY
+
+DecreaseY
+
+NoChange
+
+
+
+Y_0
+
+Y_0
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_0
+
+Y_90
+
+Y_90
+
+Y_90
+
+Y_180
+
+Y_180
+
+Y_180
+
+Y_180
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+South
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+
+Y_0
+
+Y_0
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_0
+
+Y_90
+
+Y_90
+
+Y_90
+
+Y_180
+
+Y_180
+
+Y_180
+
+Y_180
+
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+South
+
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+82
+
+220
+
+376
+
+532
+
+681
+
+835
+
+1001
+
+1155
+
+1312
+
+1468
+
+1623
+
+1781
+
+1933
+
+2085
+
+2243
+
+2401
+
+2557
+
+2726
+
+2884
+
+3039
+
+3194
+
+3354
+
+3520
+
+3674
+
+3832
+
+3993
+
+4149
+
+4312
+
+
+85
+
+222
+
+378
+
+534
+
+683
+
+837
+
+1003
+
+1157
+
+1314
+
+1470
+
+1625
+
+1783
+
+1935
+
+2087
+
+2245
+
+2403
+
+2559
+
+2728
+
+2886
+
+3041
+
+3196
+
+3356
+
+3522
+
+3676
+
+3834
+
+3995
+
+4151
+
+4314
+
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+North
+
+North
+
+North
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+West
+
+North
+
+East
+
+East
+
+East
+
+South
+
+South
+
+South
+
+
+
+100
+
+96
+
+92
+
+88
+
+84
+
+80
+
+76
+
+72
+
+68
+
+64
+
+60
+
+56
+
+52
+
+48
+
+44
+
+40
+
+36
+
+32
+
+28
+
+24
+
+20
+
+19
+
+18
+
+17
+
+16
+
+15
+
+14
+
+13
+
+
+0
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+
+0
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+
+IncreaseY
+
+IncreaseY
+
+DecreaseYaw
+
+DecreaseX
+
+DecreaseX
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+NoChange
+
+IncreaseYaw
+
+IncreaseYaw
+
+IncreaseX
+
+IncreaseX
+
+IncreaseYaw
+
+DecreaseY
+
+DecreaseY
+
+NoChange
+
+
+Camera
+
+Weapon
+
+None
+
+None
+
+None
+
+None
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+None
+
+None
+
+None
+
+Weapon
+
+Camera
+
+Weapon
+
+None
+
+None
+
+Weapon
+
+None
+
+Weapon
+
+Weapon
+
+None
+
+Weapon
+
+None
+
+None
+
+None
+
+Camera
+
+
+96
+
+92
+
+88
+
+84
+
+80
+
+76
+
+72
+
+68
+
+64
+
+60
+
+56
+
+52
+
+48
+
+44
+
+40
+
+36
+
+32
+
+28
+
+24
+
+20
+
+19
+
+18
+
+17
+
+16
+
+15
+
+14
+
+13
+
+12
+
+
+0
+
+0
+
+0
+
+-1
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-2
+
+-1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+1
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+
+1
+
+0
+
+0
+
+
+Y_0
+
+Y_0
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_270
+
+Y_0
+
+Y_90
+
+Y_90
+
+Y_90
+
+Y_180
+
+Y_180
+
+Y_180
+
+Y_180
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+true
+
+true
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+
+true
+
+true
+
+false
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+true
+
+false
+
+false
+
+true
+
+true
+
+false
+
+true
+
+true
+
+true
+
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+true
+
+true
+
+true
+
+false
+
+false
+
+true
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+false
+
+true
+
+
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+4
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+</Node>
+
+</CounterExample>
+
+</Property>
+
+
+52.977
+
+valid
+
+
+</Results>
