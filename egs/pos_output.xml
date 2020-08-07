@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" enabled="bmc,ind,ind2,ic3,invgents,invgenos,invgenintos,invgenintos" timeout="0.000000" bmc_max="0" compositional="false" modular="false">
+
+
+<Log class="info" source="parse">kind2 v1.1.0-267-ge8871cfb</Log>
+
+
+<AnalysisStart top="top" concrete="intcounter,greycounter" abstract="" assumptions=""/>
+
+<Property name="OK" line="24" column="2">
+  <Runtime unit="sec" timeout="false">0.063</Runtime>
+  <Answer source="ind">valid</Answer>
+</Property>
+
+<AnalysisStop/>
+
+
+
+</Results>
